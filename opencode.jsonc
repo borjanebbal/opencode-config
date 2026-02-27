@@ -1,0 +1,206 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
+  "theme": "opencode",
+  "model": "github-copilot/claude-sonnet-4.6",
+  "small_model": "github-copilot/claude-haiku-4.5",
+  "permission": {
+    "bash": {
+      // "allow" lets common safe commands run without asking.
+      "cat *": "allow",
+      "git status": "allow",
+      "git diff *": "allow",
+      "git log *": "allow",
+      "ls *": "allow",
+      "npm test": "allow",
+      // "ask" requires your confirmation before execution.
+      "*": "ask",
+    },
+    "skill": {
+      "senior-architect": "allow",
+      "senior-devops": "allow",
+      "senior-security": "allow",
+      "senior-qa": "allow",
+      "senior-fullstack": "allow",
+      "senior-frontend": "allow",
+      "senior-backend": "allow",
+      "code-reviewer": "allow",
+      "web-design-guidelines": "allow",
+      "vercel-react-best-practices": "allow",
+      "vue-best-practices": "allow",
+      "nestjs-best-practices": "allow",
+      "mcp-builder": "allow",
+      "*": "ask",
+    },
+  },
+  "skills": {
+    "senior-architect": {
+      "global": false,
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-architect",
+    },
+    "senior-devops": {
+      "global": false,
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-devops",
+    },
+    "senior-security": {
+      "global": false,
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security",
+    },
+    "senior-qa": {
+      "global": false,
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-qa",
+    },
+    "senior-fullstack": {
+      "global": false,
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-fullstack",
+    },
+    "senior-frontend": {
+      "global": false,
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-frontend",
+    },
+    "senior-backend": {
+      "global": false,
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-backend",
+    },
+    "code-reviewer": {
+      "global": false,
+      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/code-reviewer",
+    },
+    "web-design-guidelines": {
+      "global": false,
+      "url": "https://skills.sh/vercel-labs/agent-skills/web-design-guidelines",
+    },
+    "vercel-react-best-practices": {
+      "global": false,
+      "url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices",
+    },
+    "vue-best-practices": {
+      "global": false,
+      "url": "https://skills.sh/hyf0/vue-skills/vue-best-practices",
+    },
+    "nestjs-best-practices": {
+      "global": false,
+      "url": "https://skills.sh/kadajett/agent-nestjs-skills/nestjs-best-practices",
+    },
+    "mcp-builder": {
+      "global": false,
+      "url": "https://skills.sh/anthropics/skills/mcp-builder",
+    },
+  },
+  "agent": {
+    // Native Opencode agent.
+    "plan": { "enabled": false },
+    // Native Opencode agent.
+    "build": {
+      "description": "General purpose builder agent for coding tasks",
+      "prompt": "You are a Senior Software Developer responsible for implementing features and executing tasks. If a system design or implementation plan is provided, follow it strictly without introducing new architectural patterns or abstractions unless explicitly instructed. If no design is provided, follow the existing codebase structure, conventions, and patterns. Preserve consistency, avoid unnecessary refactoring, write clean production-ready code with minimal focused changes, and generate appropriate test files for any new feature implemented.",
+      "model": "github-copilot/claude-sonnet-4.6",
+      "temperature": 0.2,
+      "tools": {
+        "bash": true,
+        "read": true,
+        "write": true,
+        "edit": true,
+      },
+      "skills": [
+        "senior-backend",
+        "senior-frontend",
+        "web-design-guidelines",
+        "vue-best-practices",
+        "nestjs-best-practices",
+      ],
+      "permission": {
+        "skill": {
+          "senior-backend": "allow",
+          "senior-frontend": "allow",
+          "web-design-guidelines": "allow",
+          "vue-best-practices": "allow",
+          "nestjs-best-practices": "allow",
+        },
+      },
+    },
+    "design": {
+      "description": "System design and high-level technical planning",
+      "prompt": "You are a Staff-Level Software Architect. Analyze requirements and design scalable, maintainable systems. Before proposing solutions, clarify assumptions and constraints, identify functional and non-functional requirements, and surface risks and tradeoffs. Produce: (1) a concise problem summary, (2) 2–3 viable architectural options when tradeoffs exist, (3) a recommended approach with justification, (4) key tradeoffs and risks, and (5) a phased implementation plan. Do not write production code unless explicitly requested. Do not modify files or execute commands. Prefer simplicity over premature optimization.",
+      "model": "github-copilot/claude-opus-4.6",
+      "temperature": 0.4,
+      "tools": {
+        "bash": false,
+        "read": true,
+        "write": false,
+        "edit": false,
+      },
+      "skills": [
+        "senior-architect",
+        "senior-fullstack",
+        "senior-devops",
+        "senior-security",
+      ],
+      "permission": {
+        "skill": {
+          "senior-architect": "allow",
+          "senior-fullstack": "allow",
+          "senior-devops": "allow",
+          "senior-security": "allow",
+        },
+      },
+    },
+    "refactor": {
+      "description": "Specialized in cleaning code and improving readability",
+      "prompt": "You are a Refactoring Specialist. Improve readability, maintainability, and structure without changing observable external behavior. Apply SOLID principles where appropriate, eliminate code smells, reduce duplication, improve cohesion, and clarify abstractions while avoiding unnecessary complexity. Prefer improving existing structures over introducing new architectural layers unless there is clear long-term benefit. Before modifying code, briefly summarize current behavior, identify invariants and side effects that must not change, and preserve all public APIs. Do not alter business logic unless explicitly instructed, prefer small incremental improvements over large rewrites, avoid speculative abstractions, and preserve performance characteristics unless a justified improvement is made. After changes, clearly explain what was improved and, if tests exist, run them to verify no regressions were introduced; if tests do not exist, suggest minimal regression tests.",
+      "model": "github-copilot/claude-opus-4.6",
+      "small_model": "github-copilot/claude-sonnet-4.6",
+      "temperature": 0.0,
+      "tools": {
+        "bash": true,
+        "read": true,
+        "write": true,
+        "edit": true,
+      },
+      "skills": [
+        "vercel-react-best-practices",
+        "vue-best-practices",
+        "nestjs-best-practices",
+      ],
+      "permission": {
+        "skill": {
+          "vercel-react-best-practices": "allow",
+          "vue-best-practices": "allow",
+          "nestjs-best-practices": "allow",
+        },
+      },
+    },
+    "review": {
+      "description": "Performs critical code reviews for correctness, maintainability, and architectural integrity",
+      "prompt": "You are a Senior Code Reviewer. Critically evaluate changes for correctness, edge cases, regressions, performance issues, security risks, and architectural consistency. Provide precise, constructive, and actionable feedback. Identify potential bugs, missing tests, unnecessary complexity, violations of established patterns, unclear abstractions, and flag any violations of SOLID, DRY, or separation of concerns. Do not rewrite code unless absolutely necessary — focus on analysis, risk detection, and improvement suggestions. Highlight risk severity (low, medium, high) for each issue found and explicitly state whether the change is safe to merge, needs revision, or is high risk.",
+      "model": "github-copilot/gpt-5.3-codex",
+      "temperature": 0.2,
+      "tools": {
+        "bash": false,
+        "read": true,
+        "write": false,
+        "edit": false,
+      },
+      "skills": ["code-reviewer", "senior-qa", "senior-fullstack"],
+      "permission": {
+        "skill": {
+          "code-reviewer": "allow",
+          "senior-qa": "allow",
+          "senior-fullstack": "allow",
+        },
+      },
+    },
+  },
+  "mcp": {
+    "context7": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+    },
+    "playwright": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"],
+    },
+  },
+}
