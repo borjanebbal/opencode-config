@@ -120,15 +120,16 @@ Opencode reads its config from `~/.config/opencode/opencode.jsonc`. The recommen
 
 ```bash
 mkdir -p ~/.config/opencode
-ln -s ~/opencode-config/opencode.jsonc ~/.config/opencode/opencode.jsonc
+ln -s "$(pwd)/opencode.jsonc" ~/.config/opencode/opencode.jsonc
 ```
 
 **Windows (PowerShell, run as Administrator)**
 
 ```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.config\opencode"
 New-Item -ItemType SymbolicLink `
   -Path "$env:USERPROFILE\.config\opencode\opencode.jsonc" `
-  -Target "$env:USERPROFILE\opencode-config\opencode.jsonc"
+  -Target "$PWD\opencode.jsonc"
 ```
 
 **Alternative — copy instead of symlink**
