@@ -17,74 +17,11 @@
       "*": "ask",
     },
     "skill": {
-      "senior-architect": "allow",
-      "senior-devops": "allow",
-      "senior-security": "allow",
-      "senior-qa": "allow",
-      "senior-fullstack": "allow",
-      "senior-frontend": "allow",
-      "senior-backend": "allow",
-      "code-reviewer": "allow",
-      "web-design-guidelines": "allow",
       "vercel-react-best-practices": "allow",
       "vue-best-practices": "allow",
       "nestjs-best-practices": "allow",
       "mcp-builder": "allow",
       "*": "ask",
-    },
-  },
-  "skills": {
-    "senior-architect": {
-      "global": false,
-      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-architect",
-    },
-    "senior-devops": {
-      "global": false,
-      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-devops",
-    },
-    "senior-security": {
-      "global": false,
-      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-security",
-    },
-    "senior-qa": {
-      "global": false,
-      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-qa",
-    },
-    "senior-fullstack": {
-      "global": false,
-      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-fullstack",
-    },
-    "senior-frontend": {
-      "global": false,
-      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-frontend",
-    },
-    "senior-backend": {
-      "global": false,
-      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-backend",
-    },
-    "code-reviewer": {
-      "global": false,
-      "url": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/code-reviewer",
-    },
-    "web-design-guidelines": {
-      "global": false,
-      "url": "https://skills.sh/vercel-labs/agent-skills/web-design-guidelines",
-    },
-    "vercel-react-best-practices": {
-      "global": false,
-      "url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices",
-    },
-    "vue-best-practices": {
-      "global": false,
-      "url": "https://skills.sh/hyf0/vue-skills/vue-best-practices",
-    },
-    "nestjs-best-practices": {
-      "global": false,
-      "url": "https://skills.sh/kadajett/agent-nestjs-skills/nestjs-best-practices",
-    },
-    "mcp-builder": {
-      "global": false,
-      "url": "https://skills.sh/anthropics/skills/mcp-builder",
     },
   },
   "mcp": {
