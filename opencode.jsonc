@@ -23,6 +23,11 @@
       "*": "ask",
     },
   },
+  "agent": {
+    "plan": {
+      "disable": true,
+    },
+  },
   "mcp": {
     "context7": {
       "enabled": false,
