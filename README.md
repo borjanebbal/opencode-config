@@ -8,6 +8,14 @@ Personal multi-agent configuration for [Opencode](https://opencode.ai) — a pro
 
 The configuration follows a role-based multi-agent design:
 
+### 💬 `ask`
+Quick answers to questions. Read-only, no skills.
+
+- Answers technical and code questions directly and concisely
+- Explains trade-offs, patterns, and concepts on demand
+- Never modifies files or executes commands
+- No skills loaded — low overhead, fast responses
+
 ### 🏗️ `architect`
 Staff-level software architect. Read-only.
 
@@ -61,7 +69,7 @@ General engineering knowledge (architecture, security, DevOps, QA, etc.) is bake
 
 This setup uses GitHub Copilot-hosted models:
 
-- `github-copilot/claude-sonnet-4.6` — build agent, default model
+- `github-copilot/claude-sonnet-4.6` — ask and build agents, default model
 - `github-copilot/claude-opus-4.6` — architect and refactor agents
 - `github-copilot/gpt-5.3-codex` — review agent
 
@@ -98,7 +106,7 @@ GITHUB_TOKEN=
 - Safe, read-only commands (`git status`, `ls`, etc.) run automatically
 - Broad or destructive commands require confirmation
 - Skill usage is scoped per agent — only framework skills are auto-allowed
-- `architect` and `review` agents cannot modify files or run commands
+- `architect`, `review`, and `ask` agents cannot modify files or run commands
 
 ---
 
