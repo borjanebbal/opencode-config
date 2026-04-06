@@ -5,6 +5,8 @@
   "small_model": "github-copilot/claude-sonnet-4.6",
   "permission": {
     "bash": {
+      // "ask" requires your confirmation before execution.
+      "*": "ask",
       // "allow" lets common safe commands run without asking.
       "cat *": "allow",
       "git status": "allow",
@@ -12,8 +14,6 @@
       "git log *": "allow",
       "ls *": "allow",
       "npm test": "allow",
-      // "ask" requires your confirmation before execution.
-      "*": "ask",
     },
     "skill": {
       "vercel-react-best-practices": "allow",
