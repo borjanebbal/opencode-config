@@ -16,11 +16,12 @@
       "npm test": "allow",
     },
     "skill": {
+      // "ask" for any unlisted skill (catch-all, matched first).
+      "*": "ask",
       "vercel-react-best-practices": "allow",
       "vue-best-practices": "allow",
       "nestjs-best-practices": "allow",
       "mcp-builder": "allow",
-      "*": "ask",
     },
   },
   "agent": {
