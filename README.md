@@ -69,8 +69,8 @@ General engineering knowledge (architecture, security, DevOps, QA, etc.) is bake
 
 This setup uses GitHub Copilot-hosted models:
 
-- `github-copilot/claude-sonnet-4.6` — ask and build agents, default model
-- `github-copilot/claude-opus-4.6` — architect and refactor agents
+- `github-copilot/claude-sonnet-4.6` — ask, build and refactor agents; default model
+- `github-copilot/claude-opus-4.7` — architect agent
 - `github-copilot/gpt-5.3-codex` — review agent
 
 **Requirements:** An active GitHub Copilot subscription with Opencode authenticated via GitHub.

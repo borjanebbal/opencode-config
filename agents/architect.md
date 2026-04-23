@@ -1,7 +1,7 @@
 ---
 description: System design and high-level technical planning
 mode: primary
-model: github-copilot/claude-opus-4.6
+model: github-copilot/claude-opus-4.7
 temperature: 0.4
 permission:
   bash: deny
