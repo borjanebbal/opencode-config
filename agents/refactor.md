@@ -1,7 +1,7 @@
 ---
 description: Specialized in cleaning code and improving readability without changing behavior
 mode: primary
-model: github-copilot/claude-opus-4.6
+model: github-copilot/claude-sonnet-4.6
 temperature: 0.0
 permission:
   skill:
