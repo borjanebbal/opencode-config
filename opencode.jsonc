@@ -14,6 +14,11 @@
       "git log *": "allow",
       "ls *": "allow",
       "npm test": "allow",
+      "npm run lint": "allow",
+      "npm run lint:fix": "allow",
+      "grep *": "allow",
+      "head *": "allow",
+      "tail *": "allow",
     },
     "skill": {
       // "ask" for any unlisted skill (catch-all, matched first).
