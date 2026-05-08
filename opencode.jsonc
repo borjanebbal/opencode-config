@@ -9,6 +9,7 @@
       "*": "ask",
       // "allow" lets common safe commands run without asking.
       "cat *": "allow",
+      "find *": "allow",
       "git status": "allow",
       "git diff *": "allow",
       "git log *": "allow",
@@ -16,6 +17,8 @@
       "npm test": "allow",
       "npm run lint": "allow",
       "npm run lint:fix": "allow",
+      "npx tsc": "allow",
+      "npx eslint": "allow",
       "grep *": "allow",
       "head *": "allow",
       "tail *": "allow",
